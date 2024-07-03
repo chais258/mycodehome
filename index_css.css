@@ -1,5 +1,5 @@
 body{
-    background-image:url(天空冷.jpg) ;
+    background-image:url(./天空冷.jpg) ;
     background-size: cover;
     display: flex;
     justify-content:center;
