@@ -1,5 +1,5 @@
 body{
-    background-image:url(https://raw.githubusercontent.com/chais258/skyworld/main/%E5%A4%A9%E7%A9%BA%E5%86%B7.jpg) ;
+    background-image:url(image/天空之城1.jpg) ;
     background-size: cover;
     display: flex;
     justify-content:center;
@@ -32,6 +32,10 @@ body{
         font-weight: 600;
         color:rgb(255, 255, 255);
         margin-left: 5px;
+    }
+    .no_{
+        text-decoration: none;
+        color:black;
     }
     .midd{
         border: 2px solid #0707f3;
