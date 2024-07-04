@@ -1,0 +1,55 @@
+body{
+    background-image:url(image/天空之城1.jpg) ;
+    background-size: cover;
+    display: flex;
+    justify-content:center;
+    
+    }
+    .home{
+        opacity: 0.8;
+        background-color: #fff;
+        box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+        height: 1000px;
+        width: 1200px;
+        display:flex;
+        flex-direction: column;
+        
+    }
+    .one{
+        margin-left: 20px;
+        font-size: 30px;
+        font-weight: 800;
+    }
+    .two{
+        margin-left: 20px;
+        font-size: 20px;
+        font-weight: 600;
+        color:black;
+        text-decoration: none;
+    }
+    .three{
+        font-size: 20px;
+        font-weight: 600;
+        color:rgb(255, 255, 255);
+        margin-left: 5px;
+    }
+    .no_{
+        text-decoration: none;
+        color:black;
+    }
+    .midd{
+        border: 2px solid #0707f3;
+        border-radius: 10px;
+        background-color: #0b92f9;
+        height:auto;
+        width:800px;
+        margin-left: 20px;
+        margin-top: 20px;
+        box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+    }
+    .A{
+            
+        height:auto;
+        width:800px;
+        margin-left: 20px;
+    }

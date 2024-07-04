@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>cf</title>
+  <link rel="stylesheet" href="page1_css.css">
+</head>
+<body>
+    <div class="home">
+        <div class = "header">
+          <p class="one">Sky World</p>
+          <a class="two" href="index.html">首页</a>
+        </div>
+    
+        <div class="maint">
+          <div class="midd"><h class="three">A</h></div>
+          <div class="A">
+            <p>这是A题的第一行</p>
+            <p>这是A题的第二行</p>
+            <div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+            <pre>
+              <code class="language-c++">
+#include&lt;bits/stdc++.h&gt;
+using namespace std;
+int main()
+{
+  int T;
+  cin&gt;&gt;T;
+  for(int t=1;t&lt;=T;t++)
+  {
+    string a,b;
+    cin&gt;&gt;a&gt;&gt;b;
+    int ans=10000000;
+    int n=a.size(),m=b.size();
+    for(int i=0;i&lt;b.size();i++)//x-1的部分 
+    {
+      int j=i;
+      for(char c:a)
+      if(j&lt;m&amp;&amp;c==b[j])
+      j++;
+      
+      ans=min(ans,m-(j-i)+n);
+    }
+    cout&lt;&lt;ans&lt;&lt;endl;
+  }
+}
+              </code>
+            </pre>
+            </div>
+          </div>  
+
+          <div class="midd"><h class="three">B</h></div>
+          <div class="A">
+          <p>这是B题的第一行</p>
+          <p>这是B题的第二行</p>
+          </div>
+          <div class="midd"><h class="three">C</h></div>
+
+          <div class="A">
+          <p>这是C题的第一行</p>
+          <p>这是C题的第二行</p>
+          </div>
+        </div>
+    </div>
+
+    
+
+
+    <div>
+      <script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+      <script src="https://cdn.bootcdn.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+      <script type="text/javascript">
+        hljs.initHighlightingOnLoad();
+  
+        hljs.initLineNumbersOnLoad();
+  
+        $(document).ready(function () {
+          $("code.hljs").each(function (i, block) {
+            hljs.lineNumbersBlock(block);
+          });
+        });
+      </script>
+    </div>
+</body>
