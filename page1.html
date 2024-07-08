@@ -8,7 +8,7 @@
 <body>
     <div class="home">
         <div class = "header">
-          <p class="one">Sky World</p>
+          <p class="one">Div2 956</p>
           <a class="two" href="index.html">首页</a>
         </div>
     
@@ -16,50 +16,141 @@
           <div class="maint_left">
           <div class="midd"><h class="three">A</h></div>
           <div class="A">
-            <p>这是A题的第一行</p>
-            <p>这是A题的第二行</p>
-            <div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
-            <pre>
-              <code class="language-c++">
-#include&lt;bits/stdc++.h&gt;
-using namespace std;
-int main()
-{
-  int T;
-  cin&gt;&gt;T;
-  for(int t=1;t&lt;=T;t++)
-  {
-    string a,b;
-    cin&gt;&gt;a&gt;&gt;b;
-    int ans=10000000;
-    int n=a.size(),m=b.size();
-    for(int i=0;i&lt;b.size();i++)//x-1的部分 
-    {
-      int j=i;
-      for(char c:a)
-      if(j&lt;m&amp;&amp;c==b[j])
-      j++;
-      
-      ans=min(ans,m-(j-i)+n);
-    }
-    cout&lt;&lt;ans&lt;&lt;endl;
-  }
-}
-              </code>
-            </pre>
-            </div>
+            <p>序列1 2 3 ... n秒了</p>
+            
           </div>  
 
           <div class="midd"><h class="three">B</h></div>
           <div class="A">
-          <p>这是B题的第一行</p>
           <p>这是B题的第二行</p>
           </div>
           <div class="midd"><h class="three">C</h></div>
 
           <div class="A">
-          <p>这是C题的第一行</p>
-          <p>这是C题的第二行</p>
+          <p>设Alice分得区间A Bob为区间B Charlie为区间C</p>
+
+          <p>整个区间T 分成ABC三份</p>
+          
+          <p>所有可能：</p>
+
+<p>A B C</p>
+
+<p>A C B</p>
+<p>B A C</p>
+
+<p>B C A</p>
+
+<p>C A B</p>
+
+<p>C B A</p>
+
+<p>a,b,c分别表示第一个区间 ，第二个区间，第三个区间</p>
+
+<p>例如ACB这种情况中</p>
+
+<p>a表示A b表示C c表示B</p>
+
+
+
+<p>a的左边界固定为1，枚举a的右边界，使得a的和>=1/3tot</p>
+
+<p>接着以a的右边界作为b的左边界，向右枚举b的右边界，使得b的和>=1/3tot</p>
+
+<p>剩下是c的区间</p>
+
+<p>基本思想是尽量压缩左边的区间，使左边区间满足1/3要求的情况下尽量小，从而为右边部分留出空间</p>
+          <div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+            <pre>
+              <code class="language-c++">
+#include&lt;bits/stdc++.h&gt;
+
+using namespace std;
+const int N=2e5+10;
+typedef long long ll; 
+ll arr[4][N];
+ll n;
+bool isok=false;
+struct Ans{
+  ll id;
+  ll l,r;
+}ans[3];
+bool cmp(Ans a,Ans b)
+{
+  return a.id&lt;b.id;
+}
+bool check(ll a,ll b,ll c,ll sum)
+{
+  ll suma=0,sumb=0,sumc=0,lin;
+  if(sum%3!=0)
+  lin=sum/3+1;
+  else
+  lin=sum/3;
+  for(ll i=1;i&lt;=n;i++)//枚举a的右边界 
+  {
+    suma+=arr[a][i];
+    if(suma&gt;=lin)
+    for(ll j=i+1;j&lt;=n;j++)
+    {
+      sumb+=arr[b][j];
+
+      if(sumb&gt;=lin)
+      {
+        for(ll k=j+1;k&lt;=n;k++)
+        sumc+=arr[c][k];
+        if(sumc&gt;=lin)
+        {
+          ans[0]={a,1,i},ans[1]={b,i+1,j},ans[2]={c,j+1,n};
+          sort(ans,ans+3,cmp);
+          for(ll m=0;m&lt;3;m++)
+          cout&lt;&lt;ans[m].l&lt;&lt;&quot; &quot;&lt;&lt;ans[m].r&lt;&lt;&quot; &quot;;
+          cout&lt;&lt;endl;
+          return true;
+        }
+        else
+        return false;
+      }
+      if(j==n)
+      return false;
+    }
+  }
+  return false;
+}
+void solved()
+{
+  
+  cin&gt;&gt;n;
+  ll sum=0;
+  for(ll i=1;i&lt;=3;i++)
+  for(ll j=1;j&lt;=n;j++)
+  {
+    cin&gt;&gt;arr[i][j];
+    sum+=arr[i][j];
+  }
+  sum/=3;
+  for(ll i=1;i&lt;=3;i++)
+  for(ll j=1;j&lt;=3;j++)
+  for(ll k=1;k&lt;=3;k++)
+  {
+    if(i==j||j==k||i==k)
+    continue;
+    if(check(i,j,k,sum))
+    return;
+  }
+  cout&lt;&lt;-1&lt;&lt;endl;
+  
+}
+int main()
+{
+  ll t;
+  cin&gt;&gt;t;
+  while(t--)
+  {
+    solved();
+  }
+}
+              </code>
+            </pre>
+            </div>
           </div>
           </div>
           <div class="main_right" style="text-align: center">
